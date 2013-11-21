@@ -53,9 +53,9 @@ function highlight(words) {
 
 function flash(card) {
     card.css('background-color', '#FCC694');
-    setTimeout(card.css('background-color', '#000'),2000);
+    setTimeout(card.css('background-color', '#FFF'),2000);
     setTimeout(card.css('background-color', '#FCC694'),3000);
-    setTimeout(card.css('background-color', '#000'),2000);
+    setTimeout(card.css('background-color', '#FFF'),2000);
 }
 
 function startButton(event) {
