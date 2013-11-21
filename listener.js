@@ -11,6 +11,7 @@ recognition.onstart = function(){
     recognizing = true;
     var start_img = $('#start_img');
     start_img.src = 'https://raw.github.com/GoogleChrome/webplatform-samples/master/webspeechdemo/mic-animate.gif';
+    console.log('starting');
 }
 
 // swallow the error
@@ -21,6 +22,7 @@ recognition.onend = function(){
     recognizing = false;
     var start_img = $('#start_img');
     start_img.src = 'https://raw.github.com/GoogleChrome/webplatform-samples/master/webspeechdemo/mic-slash';
+    console.log('ending');
 }
 
 recognition.onresult = function(event){
@@ -41,6 +43,7 @@ function startButton(event) {
     ignore_onend = false;
     var start_img = $('#start_img');
     start_img.src = "https://raw.github.com/GoogleChrome/webplatform-samples/master/webspeechdemo/mic-slash.gif";
+    console.log('button pressed');
 }
 
 mic_button = '<button style="border: 0;background-color:transparent;padding: 0;float:left;" onclick="startButton(event)">' +
