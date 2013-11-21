@@ -28,10 +28,11 @@ recognition.onend = function(){
 }
 
 recognition.onresult = function(event){
+    console.log(event)
     for (var i = event.resultIndex; i < event.results.length; i++) {
-        if (event.results[i].isFinal) {
+        //if (event.results[i].isFinal) {
             highlight(event.results[i][0].transcript);
-        }
+        //}
     }
 }
 
