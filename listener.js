@@ -38,11 +38,11 @@ recognition.onresult = function(event){
 function highlight(words) {
     words = words.split(' ');
     cards = $('.card_key>span:first-child');
-    for (card in cards) {
-        for (word in words) {
-            num = card.innerHTML.split('-');
-            if (num = word) {
-                console.log(card);
+    for (var i=0; i<cards.length; i++) {
+        for (var j=0; j<words.length; j++) {
+            num = cards[i].innerHTML.split('-');
+            if (num = words[j]) {
+                console.log(cards[i]);
             }
         }
     }
