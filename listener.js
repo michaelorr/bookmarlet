@@ -38,14 +38,14 @@ recognition.onresult = function(event){
 function highlight(words) {
     words = words.split(' ');
     cards = $('.card_key>span:first-child');
-            console.log(cards);
-            console.log(words);
     for (card in cards) {
         for (word in words) {
+            num = card.innerHTML.split('-');
+            if (num = word) {
+                console.log(card);
+            }
         }
     }
-
-    console.log('trying to highlight: ' + word);
 }
 
 function startButton(event) {
