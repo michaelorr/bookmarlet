@@ -38,8 +38,8 @@ recognition.onresult = function(event){
 function highlight(words) {
     words = words.split(' ');
     cards = $('.card_key>span:first-child');
-            console.log(card);
-            console.log(word);
+            console.log(cards);
+            console.log(words);
     for (card in cards) {
         for (word in words) {
         }
