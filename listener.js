@@ -1,10 +1,16 @@
+var recognizing = false;
+
+
 var recognition = new webkitSpeechRecognition();
 recognition.continuous = true;
 recognition.interimResults = false;
 recognition.lang = "en";
 
 // show listening status
-recognition.onstart = function(){}
+recognition.onstart = function(){
+    recognizing = true;
+    start_img.src = 'https://raw.github.com/GoogleChrome/webplatform-samples/master/webspeechdemp/mic-animate.gif';
+}
 
 // swallow the error
 recognition.onerror = function(event){}
