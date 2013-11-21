@@ -37,16 +37,22 @@ recognition.onresult = function(event){
 
 function highlight(words) {
     words = words.split(' ');
+    //cards = $('#card_on_board');
     cards = $('.card_key>span:first-child');
     for (var i=0; i<cards.length; i++) {
         for (var j=0; j<words.length; j++) {
+            id = cards[i]
             num = cards[i].innerHTML.split('-')[1];
-            //console.log('comparing ' +num+ ' and ' +words[j]);
             if (num == words[j]) {
-                console.log(cards[i]);
+                //console.log(cards[i]);
+                flash($(cards[i]).parent().parent())
             }
         }
     }
+}
+
+function flash(card) {
+    card.css('background-color', '#FCC694');
 }
 
 function startButton(event) {
