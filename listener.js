@@ -35,9 +35,17 @@ recognition.onresult = function(event){
     }
 }
 
-function highlight(word) {
-   console.log('trying to highlight: ' + word);
+function highlight(words) {
+    words = words.split(' ');
+    cards = $('.card_key>span:first-child');
+            console.log(card);
+            console.log(word);
+    for (card in cards) {
+        for (word in words) {
+        }
+    }
 
+    console.log('trying to highlight: ' + word);
 }
 
 function startButton(event) {
