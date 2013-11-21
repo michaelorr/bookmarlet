@@ -1,0 +1,1 @@
+javascript:void((function()   {     var e=document.createElement('script');     e.setAttribute('type','text/javascript');     e.setAttribute('src','https://raw.github.com/michaelorr/bookmarlet/master/listener.js?' + new Date());    document.body.appendChild(e)   })())
