@@ -1,8 +1,9 @@
 var recognizing = false;
+var ended_by_button = false;
 var ignore_onend;
 
 var recognition = new webkitSpeechRecognition();
-recognition.continuous = true;
+recognition.continuous = false;
 recognition.interimResults = false;
 recognition.lang = "en";
 
@@ -22,6 +23,9 @@ recognition.onerror = function(event){
 
 // hide listening status
 recognition.onend = function(){
+    if(!ended_by_button) {
+        recognition.start();
+    }
     recognizing = false;
     var start_img = $('#start_img')[0];
     start_img.src = 'https://raw.github.com/GoogleChrome/webplatform-samples/master/webspeechdemo/mic-slash.gif';
@@ -30,9 +34,9 @@ recognition.onend = function(){
 recognition.onresult = function(event){
     console.log(event)
     for (var i = event.resultIndex; i < event.results.length; i++) {
-        //if (event.results[i].isFinal) {
+        if (event.results[i].isFinal) {
             highlight(event.results[i][0].transcript);
-        //}
+        }
     }
 }
 
@@ -61,11 +65,13 @@ function flash(card) {
 
 function startButton(event) {
     if(recognizing){
+        ended_by_button=true;
         recognition.stop();
         return;
     }
     recognition.start();
     ignore_onend = false;
+    ended_by_button=false;
     var start_img = $('#start_img')[0];
     start_img.src = "https://raw.github.com/GoogleChrome/webplatform-samples/master/webspeechdemo/mic-slash.gif";
 }
