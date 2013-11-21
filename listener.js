@@ -41,6 +41,7 @@ function highlight(words) {
     for (var i=0; i<cards.length; i++) {
         for (var j=0; j<words.length; j++) {
             num = cards[i].innerHTML.split('-');
+            console.log('comparing ' +num+ ' and ' +words[j]);
             if (num == words[j]) {
                 console.log(cards[i]);
             }
