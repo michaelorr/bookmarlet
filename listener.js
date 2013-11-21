@@ -1,5 +1,5 @@
 var recognizing = false;
-
+var ignore_onend;
 
 var recognition = new webkitSpeechRecognition();
 recognition.continuous = true;
@@ -15,10 +15,17 @@ recognition.onstart = function(){
 }
 
 // swallow the error
-recognition.onerror = function(event){}
+recognition.onerror = function(event){
+    if(event.error == 'no-speech') {
+        ignore_onend = true;
+    }
+}
 
 // hide listening status
 recognition.onend = function(){
+    if(ignore_onend) {
+        recognition.start();
+    }
     recognizing = false;
     var start_img = $('#start_img');
     start_img.src = 'https://raw.github.com/GoogleChrome/webplatform-samples/master/webspeechdemo/mic-slash';
@@ -38,7 +45,6 @@ function startButton(event) {
         recognition.stop();
         return;
     }
-    final_transcript = '';
     recognition.start();
     ignore_onend = false;
     var start_img = $('#start_img');
